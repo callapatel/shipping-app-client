@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
       @weight = Product.find(@ids).weight
       array << @weight
     end
+    array.sum
     @items_to_determine_packagecount = (@productinfo.count - 1)
 
     @address = current_order.address
