@@ -18,10 +18,9 @@ class CartController < ApplicationController
         @weight = Product.find(@ids).weight
         @array << @weight
       end
-      @items_to_determine_packagecount = (@productinfo.count - 1)
 
       @address = current_order.address
-      r = HTTParty.get('http://shipmypants.herokuapp.com/?',:query => {
+      @r = HTTParty.get('http://shipmypants.herokuapp.com/?',:query => {
         :country => 'US',
         :state => current_order.address.state.upcase,
         :city => current_order.address.city,
@@ -29,8 +28,8 @@ class CartController < ApplicationController
         :weight => @array.sum.to_i
         }
       )
-      r.parsed_response
-      raise
+      @r.parsed_response
+
     end
 
   end
