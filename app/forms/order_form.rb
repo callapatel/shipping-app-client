@@ -3,12 +3,8 @@ class OrderForm
 
   def initialize(order, params)
     @order = order
-
-
-
-
     @order.build_credit_card(params.require(:credit_card).permit!)
-    raise
+    @order.update(ship_price: (params[:ship_price]))
   end
 
   def save
