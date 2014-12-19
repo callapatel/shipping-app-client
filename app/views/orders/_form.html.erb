@@ -39,9 +39,13 @@
           <% array1 =  @r.parsed_response%>
 
           <% @r.each do |is| %>
-           <%= is[0]%>
-           Price: <%= is[1]%>
+
+           <%=radio_button_tag(:selection, is)%>
+
+          <%= label_tag( :selection, "#{is[0]}"+ " "+ "#{is[1]}")%>
+
            <br>
+
           <% end %>
 
 
