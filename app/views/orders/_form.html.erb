@@ -36,7 +36,16 @@
       <h4 class='brand'>Shipping Option</h4>
       <div class='shipping-options well'>
         <span class='brand'>
-          <%= @r.parsed_response %> 
+          <% array1 =  @r.parsed_response%>
+
+          <% @r.each do |is| %>
+           <%= is[0]%>
+           Price: <%= is[1]%>
+           <br>
+          <% end %>
+
+
+
           </span>
       </div>
       <%= f.submit "Checkout", class: "btn btn-success btn-block" %>
