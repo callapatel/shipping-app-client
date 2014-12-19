@@ -7,6 +7,7 @@ class Order < ActiveRecord::Base
 
   def total
     Money.new items.sum(:total_cents)
+    
   end
 
   private

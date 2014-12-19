@@ -10,7 +10,12 @@
   <tbody>
   <tr>
     <td width="99%" colspan=2></td>
-    <td class='brand'>Total:<%= @order.total.format %></td>
+    <% @int = (@order.ship_price.to_i/100) %>
+    <% interger = Money.new(@int) %>
+    <% @doit = @order.ship_price.to_i + @order.total.cents %>
+    <td class = 'brand'>Shipping cost:<%= @int %></td>
+    <td class='brand'>Purchase:<%= @order.total.format %></td>
+    <td class='brand'> Total: <%= Money.new(@doit).format %></td>
   </tr>
 </tbody>
 </table>
