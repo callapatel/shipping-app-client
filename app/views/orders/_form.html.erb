@@ -43,7 +43,7 @@
 
           <% @r.each do |is| %>
           <%=radio_button_tag("order[ship_price]", is[1])%>
-          <% @p = (is[1].to_i/100) %> 
+          <% @p = Money.new(is[1]) %> 
           <%= label_tag( "order[ship_price]", "#{is[0]}"+ " "+ "#{@p}")%>
 
            <br>
