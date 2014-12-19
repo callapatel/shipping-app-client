@@ -29,6 +29,8 @@
             <p class="help-block">(mm/yy)</p>
           <% end %>
         </div>
+
+
       <% end %>
     </div>
 
@@ -36,18 +38,18 @@
       <h4 class='brand'>Shipping Option</h4>
       <div class='shipping-options well'>
         <span class='brand'>
+          <div class='form-group'>
           <% array1 =  @r.parsed_response%>
 
           <% @r.each do |is| %>
-
-           <%=radio_button_tag(:selection, is)%>
-
+          <%=radio_button_tag(:ship_price, is[1])%>
           <%= label_tag( :selection, "#{is[0]}"+ " "+ "#{is[1]}")%>
 
            <br>
 
-          <% end %>
 
+          <% end %>
+        </div>
 
 
           </span>

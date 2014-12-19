@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     @items_to_determine_packagecount = (@productinfo.count - 1)
 
     @address = current_order.address
-    raise
+  
   end
 
   def update
