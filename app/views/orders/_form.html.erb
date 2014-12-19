@@ -36,14 +36,15 @@
 
     <div class='col-lg-5'>
       <h4 class='brand'>Shipping Option</h4>
-      <div class='shipping-options well'>
+      <div class='shipping-options well', style= 'overflow:scroll;' >
         <span class='brand'>
           <div class='form-group'>
           <% array1 =  @r.parsed_response%>
 
           <% @r.each do |is| %>
-          <%=radio_button_tag(:ship_price, is[1])%>
-          <%= label_tag( :selection, "#{is[0]}"+ " "+ "#{is[1]}")%>
+          <%=radio_button_tag("order[ship_price]", is[1])%>
+          <% @p = (is[1].to_i/100) %> 
+          <%= label_tag( "order[ship_price]", "#{is[0]}"+ " "+ "#{@p}")%>
 
            <br>
 
